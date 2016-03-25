@@ -3,13 +3,13 @@ package bmi;
 public class BMI {
 
     private String surname;
-    private int sex;
+    private int gender;
     private double weight;
     private double height;
 
     public BMI(String su, int se, double we, double he) {
         this.surname = su;
-        this.sex = se;
+        this.gender = se;
         this.weight = we;
         this.height = he;
     }
@@ -22,12 +22,12 @@ public class BMI {
         this.surname = s;
     }
 
-    public int getSex() {
-        return sex;
+    public int getGender() {
+        return gender;
     }
 
-    public void setSex(int se) {
-        this.sex = se;
+    public void setGender(int se) {
+        this.gender = se;
     }
 
     public double getWeight() {
