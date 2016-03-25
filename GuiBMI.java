@@ -34,17 +34,17 @@ public class GuiBMI implements ActionListener {
         JLabel surnameLabel = new JLabel("Surname : ");
         JLabel heightLabel = new JLabel("Height : ");
         JLabel weightLabel = new JLabel("Weight : ");
-        JLabel sexLabel = new JLabel("Sex : ");
+        JLabel genderLabel = new JLabel("Gender : ");
         
         // add a panel to create 2 radio button
-        JPanel cinsiyetPanel = new JPanel();
+        JPanel genderPanel = new JPanel();
 
         // addActionListener(this) method to use ActionListener
         
         MRButton.addActionListener(this);
         MRSButton.addActionListener(this);
-        cinsiyetPanel.add(MRButton);
-        cinsiyetPanel.add(MRSButton);
+        genderPanel.add(MRButton);
+        genderPanel.add(MRSButton);
 
         CALCButton.addActionListener(this);
 
@@ -57,8 +57,8 @@ public class GuiBMI implements ActionListener {
         panel.add(HeightField);
         panel.add(weightLabel);
         panel.add(WeightField);
-        panel.add(sexLabel);
-        panel.add(cinsiyetPanel);
+        panel.add(genderLabel);
+        panel.add(genderPanel);
         panel.add(CALCButton);
 
       
@@ -93,20 +93,20 @@ public class GuiBMI implements ActionListener {
             String surname = SurnameField.getText();
             String weight = WeightField.getText();
             String height = HeightField.getText();
-            int sex = 0;
+            int gender = 0;
             if (MRButton.isSelected()) {
-                sex = 1;
+                gender = 1;
             } else if (MRSButton.isSelected()) {
-                sex = 2;
+                gender = 2;
             }
 
             double dWeight = Double.parseDouble(weight);
             double dHeight = Double.parseDouble(height) / 100;
 
-            BMI bmi = new BMI(surname, sex, dWeight, dHeight);
+            BMI bmi = new BMI(surname, gender, dWeight, dHeight);
             double bmi1 = bmi.getBMI();
             String status = bmi.getStatus();
-            String call = bmi.getSex() == 1 ? "Mr " : "Mrs/Miss ";
+            String call = bmi.getGender() == 1 ? "Mr " : "Mrs/Miss ";
             
             JOptionPane.showMessageDialog(null, call + bmi.getSurname() + " result"
                     + "\nyour BMI = " + bmi1
